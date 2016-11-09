@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <!--<persistence-unit name="FrameworkPU" transaction-type="RESOURCE_LOCAL">-->
+    <persistence-unit name="FrameworkPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!--jta-data-source>wpgseeds</jta-data-source>-->
+        <mapping-file>META-INF/general.xml</mapping-file>
+        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+        <class>gr.altec.portal.hook.persistence.WpPostmeta</class>
+        <class>gr.altec.portal.hook.persistence.WpPosts</class>
+        <class>gr.altec.portal.hook.persistence.WpTerms</class>
+        <class>gr.altec.portal.hook.persistence.WpTermTaxonomy</class>
+        <class>gr.altec.portal.hook.persistence.WpTermRelationships</class>
+        <properties>
+      
+            <!--Altec Connection Pool-->
+            <!--      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/wp_inegsee_rsc"/>
+            <property name="javax.persistence.jdbc.password" value="webgear"/>
+            <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="webgear"/>-->
+      
+            <!--INE GSEE Connection Pool-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://mariadb01.inegsee.local:3307/wp_inegsee_rsc"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd" version="2.0">
+
+    <named-native-query name="general.findInvites" result-class="gr.altec.portal.hook.persistence.WpPosts">
+        <query>
+            select * 
+         from wp_posts p
+         inner join wp_postmeta m on m.post_id=p.id
+         where p.id in (select object_id 
+         from wp_term_relationships a,wp_term_taxonomy b 
+         where a.term_taxonomy_id=b.term_taxonomy_id and b.term_id=29 )
+        </query>
+    </named-native-query>
+    
+    
+    
+</entity-mappings>
+    
